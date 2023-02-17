@@ -1,0 +1,58 @@
+
+
+ func main() {
+
+	cc := &ContaCorrente{}
+
+	fmt.Println("Digite o nome do titular")
+	fmt.Scan(&(cc.titular))
+	println(cc.titular)
+	println("Entre com o número da agencia")
+	fmt.Scan(&(cc.numeroAgencia))
+	println(cc.numeroAgencia)
+	println("Entre com o número da conta")
+	fmt.Scan(&(cc.numeroConta))
+	println(cc.numeroConta)
+
+
+var cc1 *ContaCorrente 
+	cc1 = new(ContaCorrente)
+	cc1.titular = "ANA"
+	cc1.numeroAgencia = 21
+	cc1.numeroConta = 345
+	cc1.saldo = 20
+
+	println(cc1.titular, cc1.numeroAgencia, cc1.numeroConta, cc1.saldo)	
+
+
+}
+
+
+
+
+func cliente () {
+	cc := &ContaCorrente{}
+	
+	fmt.Println("Digite o nome do titular")
+	fmt.Scan(&(cc.titular))
+	println("Entre com o número da agencia")
+	fmt.Scan(&(cc.numeroAgencia))
+	println("Entre com o número da conta")
+	fmt.Scan(&(cc.numeroConta))
+	println("Entre com o saldo")
+	fmt.Scan(&(cc.saldo))
+	println("Titular: ", cc.titular, "Agencia Nº: ", cc.numeroAgencia, 
+	"Conta Nº: ", cc.numeroConta, "Saldo: ", cc.saldo)
+
+}
+
+func deposita () {
+	var deposita int
+		println("Digite o valor a ser depositado: ")
+		fmt.Scan(&(deposita))
+		cc.saldo = deposita
+		fmt.Println("Valor após o deposito é de: ", cc.saldo )
+}
+ func saque () {
+	
+ }
