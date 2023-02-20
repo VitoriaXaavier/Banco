@@ -42,30 +42,27 @@ func (cc *ContaCorrente) saque() {
 }
 
 func (cc *ContaCorrente) transferir() float64 {
-		var valorDaTransferencia float64
-		var contaDestino *ContaCorrente
+	var valorDaTransferencia float64
+	var contaDestino *ContaCorrente
 
-		if valorDaTransferencia <= cc.saldo { 
-			println("Digite o valor a ser transferido")
-			fmt.Scan(&(valorDaTransferencia))
-			
-			println("Qual a conta destino?")
-			fmt.Scan(contaDestino)
-			contaDestino = cliente()
+	if valorDaTransferencia < cc.saldo && valorDaTransferencia > 0 {
+		println("Digite o valor a ser transferido")
+		fmt.Scan(&(valorDaTransferencia))
 
+		println("Qual a conta destino?")
+		fmt.Scan(contaDestino)
+		contaDestino = cliente()
 
-			cc.saldo -= valorDaTransferencia
-			cc.transferir()
-	
-			
-			return valorDaTransferencia
+		cc.saldo -= valorDaTransferencia
+		cc.transferir()
 
+		return valorDaTransferencia
 
-	} else { 
+	} else {
 		println("Não foi possível realizar a transferencia")
 		return cc.saldo
 	}
-	 }
+}
 
 func cliente() *ContaCorrente {
 	cc := &ContaCorrente{}
