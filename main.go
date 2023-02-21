@@ -3,12 +3,12 @@ package main
 import (
 	"fmt"
 	"os"
-	"/home/vitoria/workspace/go/src/banco/cliente"
+	"banco/cliente"
 
 )
 
 
-func menu() {
+func Menu() {
 	println("Deseja realizar alguma operação?")
 	println("1- Depositar")
 	println("2- Sacar")
@@ -17,21 +17,21 @@ func menu() {
 
 }
 
-func main() {
+func Main() {
 
 	cc := cliente.Cliente()
 
-	menu()
+	Menu()
 
 	comando := cliente.leComando()
 
 	switch comando {
 	case 1:
-		cc.deposita()
+		cc.Deposita()
 	case 2:
-		cc.saque()
+		cc.Saque()
 	case 3:
-		cc.transferir()
+		cc.Transferir()
 	case 4:
 		fmt.Println("Saindo do programa")
 		os.Exit(0)

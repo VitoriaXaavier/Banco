@@ -1,9 +1,7 @@
 package cliente
 import (
 	"fmt"
-	"home/vitoria/workspace/go/src/banco/contas"
-
-	
+	"banco/contas"
 )
 	
 

@@ -1,39 +1,39 @@
 package contas
 
 import (
+	"banco/cliente"
 	"fmt"
-	"home/vitoria/workspace/go/src/banco/cliente"
-
 )
+
 type ContaCorrente struct {
-	Titular       string
+	Titular       cliente.Titular
 	NumeroAgencia int
 	NumeroConta   int
-	Saldo         float64
+	saldo         float64
 }
 
-func (cc *ContaCorrente) deposita() {
+func (cc *ContaCorrente) Deposita() {
 	var deposita float64
 
 	println("Digite o valor a ser depositado: ")
 	fmt.Scan(&(deposita))
 	if deposita > 0 {
-		cc.Saldo = deposita + cc.Saldo
-		fmt.Println("Valor após o deposito é de: ", cc.Saldo)
+		cc.saldo = deposita + cc.saldo
+		fmt.Println("Valor após o deposito é de: ", cc.saldo)
 	} else {
 		fmt.Println("Valor de depósito menor que 0!")
 	}
 }
 
-func (cc *ContaCorrente) saque() {
+func (cc *ContaCorrente) Saque() {
 	var saque float64
 
 	println("Digite o valor para saque:")
 	fmt.Scan(&(saque))
 
-	if saque > 0 && saque <= cc.Saldo {
-		saque = cc.Saldo - saque
-		println("Saldo restante: ", saque)
+	if saque > 0 && saque <= cc.saldo {
+		saque = cc.saldo - saque
+		println("saldo restante: ", saque)
 
 	} else {
 		println("Valor indisponivel para saque!")
@@ -41,11 +41,11 @@ func (cc *ContaCorrente) saque() {
 
 }
 
-func (cc *ContaCorrente) transferir() float64 {
+func (cc *ContaCorrente) Transferir() float64 {
 	var valorDaTransferencia float64
 	var contaDestino *ContaCorrente
 
-	if valorDaTransferencia < cc.Saldo && valorDaTransferencia > 0 {
+	if valorDaTransferencia < cc.saldo && valorDaTransferencia > 0 {
 		println("Digite o valor a ser transferido")
 		fmt.Scan(&(valorDaTransferencia))
 
@@ -53,13 +53,14 @@ func (cc *ContaCorrente) transferir() float64 {
 		fmt.Scan(contaDestino)
 		contaDestino = cliente.Cliente()
 
-		cc.Saldo -= valorDaTransferencia
-		cc.transferir()
+		cc.saldo -= valorDaTransferencia
+		cc.Transferir()
 
 		return valorDaTransferencia
 
 	} else {
 		println("Não foi possível realizar a transferencia")
-		return cc.Saldo
+		return cc.saldo
 	}
 }
+
