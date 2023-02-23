@@ -3,12 +3,11 @@ package main
 import (
 	"fmt"
 	"os"
-	"banco/cliente"
-
+	"github.com/VitoriaXaavier/Banco/contas"
 )
 
 
-func Menu() {
+func menu() {
 	println("Deseja realizar alguma operação?")
 	println("1- Depositar")
 	println("2- Sacar")
@@ -17,13 +16,13 @@ func Menu() {
 
 }
 
-func Main() {
+func main() {
 
-	cc := cliente.Cliente()
+	cc := contas.Cliente()
 
-	Menu()
+	menu()
 
-	comando := cliente.leComando()
+	comando := contas.LeComando()
 
 	switch comando {
 	case 1:
