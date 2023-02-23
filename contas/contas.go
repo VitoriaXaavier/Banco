@@ -1,12 +1,11 @@
 package contas
 
 import (
-	"github.com/VitoriaXaavier/Banco/cliente"
 	"fmt"
 )
 
 type ContaCorrente struct {
-	Titular       cliente.Titular
+	Titular       string
 	NumeroAgencia int
 	NumeroConta   int
 	Saldo         float64
@@ -19,7 +18,7 @@ func (cc *ContaCorrente) Deposita() {
 	fmt.Scan(&(deposita))
 	if deposita > 0 {
 		cc.Saldo = deposita + cc.Saldo
-		fmt.Println("Valor após o deposito é de: ", cc.Saldo)
+		fmt.Printf("Valor após o deposito é de: %g", cc.Saldo)
 	} else {
 		fmt.Println("Valor de depósito menor que 0!")
 	}
@@ -33,7 +32,7 @@ func (cc *ContaCorrente) Saque() {
 
 	if saque > 0 && saque <= cc.Saldo {
 		saque = cc.Saldo - saque
-		println("Saldo restante: ", saque)
+		fmt.Printf("Saldo restante: %g", saque)
 
 	} else {
 		println("Valor indisponivel para saque!")

@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"os"
+
 	"github.com/VitoriaXaavier/Banco/contas"
 )
-
 
 func menu() {
 	println("Deseja realizar alguma operação?")
